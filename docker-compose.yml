@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  app:
+    #image: platziapp
+    image: nodemongo
+    environment:
+      MONGO_URL: "mongodb://db1:27017/test"
+    depends_on:
+      - db1
+    ports:
+      - "3000:3000"
+
+  db1:
+    image: mongo:4.4.4
